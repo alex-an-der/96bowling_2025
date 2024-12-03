@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design-Vorlage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        /* Header */
+        .header {
+            background: #007B44; /* Grün von Hannover 96 */
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Gradient Übergang */
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to bottom, #007B44, #00a859, white);
+        }
+
+        /* Footer */
+        .footer {
+            background: black;
+            color: lightgray;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Navigation */
+        .nav {
+            height: calc(100vh - 60px); /* Höhe minus Header und Footer */
+            overflow-y: auto;
+        }
+
+        .nav-link {
+            color: #000;
+        }
+
+        .nav-link:hover {
+            color: #007B44;
+        }
+
+        /* Kacheln */
+        .content .card {
+            margin: 10px;
+            border: 1px solid #007B44;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card.s {
+            width: 150px;
+        }
+
+        .card.m {
+            width: 250px;
+        }
+
+        .card.l {
+            width: 350px;
+        }
+
+        .card.xl {
+            width: 450px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('.collapse').collapse('hide'); // Alle Unterkapitel standardmäßig einklappen
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header d-flex justify-content-between align-items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Hannover_96_Logo.svg/1024px-Hannover_96_Logo.svg.png" alt="Hannover 96 Logo" width="100">
+        <div>
+            <a href="#" class="text-white">Login</a>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Navigation -->
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar nav">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Öffnungszeiten</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Brutstätten</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Personal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#säugetiere" role="button" aria-expanded="false" aria-controls="säugetiere">Säugetiere</a>
+                            <ul class="nav flex-column ml-3 collapse" id="säugetiere">
+                                <li class="nav-item"><a class="nav-link" href="#">Löwen</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Elefanten</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Giraffen</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#vögel" role="button" aria-expanded="false" aria-controls="vögel">Vögel</a>
+                            <ul class="nav flex-column ml-3 collapse" id="vögel">
+                                <li class="nav-item"><a class="nav-link" href="#">Adler</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Papageien</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Eulen</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#fische" role="button" aria-expanded="false" aria-controls="fische">Fische</a>
+                            <ul class="nav flex-column ml-3 collapse" id="fische">
+                                <li class="nav-item"><a class="nav-link" href="#">Haie</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Clownfische</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Seepferdchen</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#reptilien" role="button" aria-expanded="false" aria-controls="reptilien">Reptilien</a>
+                            <ul class="nav flex-column ml-3 collapse" id="reptilien">
+                                <li class="nav-item"><a class="nav-link" href="#">Krokodile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Schlangen</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Eidechsen</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#insekten" role="button" aria-expanded="false" aria-controls="insekten">Insekten</a>
+                            <ul class="nav flex-column ml-3 collapse" id="insekten">
+                                <li class="nav-item"><a class="nav-link" href="#">Schmetterlinge</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Käfer</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Ameisen</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Inhaltsbereich -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 content">
+                <div class="row">
+                    <div class="card s">
+                        <div class="card-body">
+                            <h5 class="card-title">Kachel S</h5>
+                            <p class="card-text">Dies ist eine kleine Kachel.</p>
+                        </div>
+                    </div>
+                    <div class="card m">
+                        <div class="card-body">
+                            <h5 class="card-title">Kachel M</h5>
+                            <p class="card-text">Dies ist eine mittlere Kachel.</p>
+                        </div>
+                    </div>
+                    <div class="card l">
+                        <div class="card-body">
+                            <h5 class="card-title">Kachel L</h5>
+                            <p class="card-text">Dies ist eine große Kachel.</p>
+                        </div>
+                    </div>
+                    <div class="card xl">
+                        <div class="card-body">
+                            <h5 class="card-title">Kachel XL</h5>
+                            <p class="card-text">Dies ist eine extra große Kachel.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a href="#" class="text-light">Impressum</a>
+                </div>
+                <div class="col">
+                    <a href="#" class="text-light">Kontakt</a>
+                </div>
+                <div class="col">
+                    <a href="#" class="text-light">Verein</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS und Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
