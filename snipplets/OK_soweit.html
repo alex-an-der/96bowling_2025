@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Navigation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Hintergrundbild für den Body */
+        body {
+            background-image: url('hintergrund.png');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Die Nav-Leiste */
+        .nav-item .collapse .nav-item {
+            padding-left: 0;
+        }
+
+        .nav-link {
+            color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            color: #00a859;
+        }
+
+        /* Haken als SVG rechts vom Titel */
+        .nav-link[data-toggle="collapse"]::after {
+            content: ''; 
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2216%22%20height=%2216%22%20fill=%22currentColor%22%20class=%22bi%20bi-chevron-compact-down%22%20viewBox=%220%200%2016%2016%22%3E%3Cpath%20fill-rule=%22evenodd%22%20d=%22M1.553%206.776a.5.5%200%200%201%20.67-.223L8%209.44l5.776-2.888a.5.5%200%201%201%20.448.894l-6%203a.5.5%200%200%201-.448%200l-6-3a.5.5%200%200%201-.223-.67%22%2F%3E%3C%2Fsvg%3E');
+            background-size: contain;
+            margin-left: 10px; /* Abstand zum Text */
+        }
+
+        .nav-link[data-toggle="collapse"][aria-expanded="true"]::after {
+            transform: rotate(180deg); /* Pfeil dreht sich */
+        }
+
+        /* Hintergrundfarbe der Titel */
+        .nav-link.collapsed + .collapse > .nav-item > .nav-link {
+            background-color: #c4e1d2;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .nav-link.collapsed + .collapse > .nav-item > .nav-link:hover {
+            background-color: #b5d4b0;
+        }
+
+        /* Styling für die Navigation */
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar-sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            height: 100vh; /* Nav-Leiste bis zum unteren Rand des Bildschirms */
+            padding-top: 0.5rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* Anpassung für das Logo in der Nav-Leiste */
+        .header-logo {
+            height: 40px;
+            margin-top: 10px;
+            margin-bottom: 30px; /* Mehr Abstand unter dem Logo */
+        }
+
+        /* Anpassung der Nav-Leiste, die nun bis oben geht */
+        nav {
+            margin-top: 0; /* Logo ist jetzt Teil der Nav-Leiste */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <!-- Navigation content here -->
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="card mt-4" style="width: 33%;">
+                <div class="card-body">
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nullam ac erat ante.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav class="col-md-2 d-none d-md-block bg-light sidebar" style="margin-top: 0;">
+    <div class="sidebar-sticky">
+        <!-- Logo als Teil der Nav-Leiste -->
+        <img src="logo96.png" alt="96 Logo" class="header-logo">
+
+        <ul class="nav flex-column">
+            <!-- Öffnungszeiten -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Öffnungszeiten
+                </a>
+            </li>
+
+            <!-- Brutstätten -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Brutstätten
+                </a>
+            </li>
+
+            <!-- Personal -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Personal
+                </a>
+            </li>
+
+            <!-- Säugetiere -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#säugetiere" role="button" aria-expanded="false" aria-controls="säugetiere">
+                    Säugetiere
+                </a>
+                <div class="collapse" id="säugetiere">
+                    <ul class="nav flex-column ml-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Löwen</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Zebras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Elefanten</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- Vögel -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#vögel" role="button" aria-expanded="false" aria-controls="vögel">
+                    Vögel
+                </a>
+                <div class="collapse" id="vögel">
+                    <ul class="nav flex-column ml-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Adler</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Papageien</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Eulen</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- Fische -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#fische" role="button" aria-expanded="false" aria-controls="fische">
+                    Fische
+                </a>
+                <div class="collapse" id="fische">
+                    <ul class="nav flex-column ml-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Karpfen</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Aale</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Tintenfische</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- Reptilien -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#reptilien" role="button" aria-expanded="false" aria-controls="reptilien">
+                    Reptilien
+                </a>
+                <div class="collapse" id="reptilien">
+                    <ul class="nav flex-column ml-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Krokodile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Schlangen</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Chamäleons</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- Insekten -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#insekten" role="button" aria-expanded="false" aria-controls="insekten">
+                    Insekten
+                </a>
+                <div class="collapse" id="insekten">
+                    <ul class="nav flex-column ml-3">
+                        <li class="nav-item"><a class="nav-link" href="#">Ameisen</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Schmetterlinge</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Bienen</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<!-- Bootstrap JS und Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

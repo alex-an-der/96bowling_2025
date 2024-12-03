@@ -1,0 +1,72 @@
+body {
+    background-image: url('./css_img/hintergrund.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.sidebar{
+    height: 100vh;
+    width: 250px; /* margin-left des .main .content anpassen! */
+    background: linear-gradient(45deg, rgb(206, 206, 206), rgb(242, 242, 242));
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+.sidebar-logo-container{
+
+    padding: 10px 15px;
+
+}
+.nav-list{
+    list-style-type: none;
+    padding: 0 10px; 
+    margin: 0 10px;
+}
+.nav-item{
+    padding: 10px 15px 10px 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.nav-item:hover{
+    background: rgb(0, 0, 0, 0.05);
+    box-shadow: 0 0 0.4em rgb(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+.nav-item.active{
+    background: rgb(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.4em rgb(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+.nav-link{
+    text-decoration: none;
+    color: black;
+}
+.header{
+    background-color: rgb(242, 242, 242);
+    height: 30px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+#sidebar-toggle{
+    background: rgba(255, 255, 255);
+    box-shadow: 0 0padding 0.4em rgb(255, 255, 255, 0.2);
+    z-index: 999;
+    border-radius: 50px;
+    margin: 10px 10px 10px -10px;
+}
+#sidebar-toggle:hover{
+    color: #009e3d;
+    
+}
+.content{
+    margin-left: 280px; /* Abhängig von der Breite der Sidebar und dem sidebar-toggle (Burger) */ 
+    background-image: 'css_img/hintergrund.png';
+}
+.card-M{
+    width: 200px;
+    height: auto;
+    margin: 10px;
+}
