@@ -1,9 +1,10 @@
 body {
     background-image: url('./css_img/hintergrund.png');
-    background-size: cover;
-    background-position: center;
-    margin: 0;
     font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+    margin: 0;
 }
 .sidebar{
     height: 100vh;
