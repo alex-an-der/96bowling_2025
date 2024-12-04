@@ -13,7 +13,18 @@ body {
     top: 0;
     left: 0;
     position: fixed;
+    transition: all 1s ease;
 }
+
+body.active .sidebar{
+    left: -250px;
+}
+
+body.active .content{
+    margin-left: 0;
+    width: 100%;
+}
+
 .sidebar-logo-container{
 
     padding: 10px 15px;
@@ -44,24 +55,19 @@ body {
     text-decoration: none;
     color: black;
 }
-.header{
-    background-color: rgb(242, 242, 242);
-    height: 30px;
-    padding: 20px 0;
-    display: flex;
-    align-items: center;
-}
-#sidebar-toggle{
+
+.sidebar-toggle-bttn{
     background: rgba(255, 255, 255);
     box-shadow: 0 0padding 0.4em rgb(255, 255, 255, 0.2);
     z-index: 999;
     border-radius: 50px;
-    margin: 10px 10px 10px -10px;
+    margin: 10px 10px 10px 10px;
 }
-#sidebar-toggle:hover{
+.sidebar-toggle-bttn:hover{
     color: #009e3d;
-    
 }
+
+
 .content{
     margin-left: 280px; /* Abhängig von der Breite der Sidebar und dem sidebar-toggle (Burger) */ 
     background-image: 'css_img/hintergrund.png';
